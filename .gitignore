@@ -1,0 +1,27 @@
+# Neovim directories
+.backup/
+.swap/
+.undo/
+
+# Plugin data (managed by lazy.nvim)
+lazy-lock.json
+
+# Mason LSP installations
+plugin/
+
+# Vim session files
+Session.vim
+.netrwhist
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Compiled files
+*.o
+*.so
+*.dylib
+
+# Debug files
+.dap/
+dap.log
