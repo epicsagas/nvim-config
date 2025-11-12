@@ -32,7 +32,7 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 **Option 1: Automatic Installation**
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim
+git clone https://github.com/epicsagas/nvim-config.git ~/.config/nvim
 
 # Run installer
 cd ~/.config/nvim
@@ -42,7 +42,7 @@ cd ~/.config/nvim
 **Option 2: Manual Installation**
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim
+git clone https://github.com/epicsagas/nvim-config.git ~/.config/nvim
 
 # Install language tools (optional but recommended)
 ./install-tools.sh
@@ -68,11 +68,11 @@ Wait for plugins to install (1-2 minutes), then restart Neovim.
 cd ~/.config/nvim
 git add .
 git commit -m "Initial Neovim configuration"
-git remote add origin https://github.com/YOUR_USERNAME/nvim-config.git
+git remote add origin https://github.com/epicsagas/nvim-config.git
 git push -u origin main
 
 # On other machines
-git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim
+git clone https://github.com/epicsagas/nvim-config.git ~/.config/nvim
 cd ~/.config/nvim
 ./install.sh
 ```

@@ -22,7 +22,7 @@ gh repo create nvim-config --public --source=. --remote=origin --push
 
 ```bash
 cd ~/.config/nvim
-git remote add origin https://github.com/YOUR_USERNAME/nvim-config.git
+git remote add origin https://github.com/epicsagas/nvim-config.git
 git branch -M main
 git push -u origin main
 ```
@@ -31,7 +31,7 @@ git push -u origin main
 
 Edit `README.md` and replace all instances of:
 ```
-YOUR_USERNAME
+epicsagas
 ```
 with your actual GitHub username.
 
@@ -40,7 +40,7 @@ with your actual GitHub username.
 ### Method 1: One-Line Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim && cd ~/.config/nvim && ./install.sh
+git clone https://github.com/epicsagas/nvim-config.git ~/.config/nvim && cd ~/.config/nvim && ./install.sh
 ```
 
 ### Method 2: Step-by-Step
@@ -50,7 +50,7 @@ git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim && cd 
 mv ~/.config/nvim ~/.config/nvim.backup.$(date +%Y%m%d_%H%M%S)
 
 # Clone your configuration
-git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim
+git clone https://github.com/epicsagas/nvim-config.git ~/.config/nvim
 
 # Run installer
 cd ~/.config/nvim
@@ -146,7 +146,7 @@ git checkout -b work
 git push -u origin work
 
 # On work machine
-git clone -b work https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim
+git clone -b work https://github.com/epicsagas/nvim-config.git ~/.config/nvim
 ```
 
 ## Using with Dotfiles Repository
@@ -155,10 +155,10 @@ If you manage dotfiles with Git, you can include Neovim config as a submodule:
 
 ```bash
 cd ~/dotfiles
-git submodule add https://github.com/YOUR_USERNAME/nvim-config.git .config/nvim
+git submodule add https://github.com/epicsagas/nvim-config.git .config/nvim
 
 # To clone dotfiles with submodules
-git clone --recursive https://github.com/YOUR_USERNAME/dotfiles.git ~/
+git clone --recursive https://github.com/epicsagas/dotfiles.git ~/
 ```
 
 ## Private Configuration
@@ -169,7 +169,7 @@ If your config contains sensitive information:
 
 ```bash
 cd ~/.config/nvim
-git remote set-url origin https://github.com/YOUR_USERNAME/nvim-config-private.git
+git remote set-url origin https://github.com/epicsagas/nvim-config-private.git
 git push -u origin main
 ```
 
@@ -182,7 +182,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 # Add to GitHub: Settings → SSH and GPG keys → New SSH key
 
 # Clone using SSH
-git clone git@github.com:YOUR_USERNAME/nvim-config.git ~/.config/nvim
+git clone git@github.com:epicsagas/nvim-config.git ~/.config/nvim
 ```
 
 ## Troubleshooting
@@ -276,7 +276,7 @@ echo "Backup created in $BACKUP_DIR"
 - Use WSL 2 for best performance
 - Clone into Windows path for access from both sides:
   ```bash
-  git clone https://github.com/YOUR_USERNAME/nvim-config.git /mnt/c/Users/YOUR_USER/.config/nvim
+  git clone https://github.com/epicsagas/nvim-config.git /mnt/c/Users/YOUR_USER/.config/nvim
   ln -s /mnt/c/Users/YOUR_USER/.config/nvim ~/.config/nvim
   ```
 
@@ -293,7 +293,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  # Rust
 brew install go  # Go (macOS)
 
 # Clone and install Neovim config
-git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim
+git clone https://github.com/epicsagas/nvim-config.git ~/.config/nvim
 cd ~/.config/nvim
 ./install.sh
 
