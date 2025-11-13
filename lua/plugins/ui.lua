@@ -66,6 +66,7 @@ return {
       require("which-key").setup()
 
       require("which-key").add({
+        { "<leader>a", group = "AI Assistant" },
         { "<leader>b", group = "Bash" },
         { "<leader>c", group = "Code/C++" },
         { "<leader>C", group = "C#" },

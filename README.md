@@ -10,6 +10,7 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 ## 📚 Documentation
 
 - **[Quick Start Guide](QUICKSTART.md)** - 5분 안에 시작하기
+- **[AI Integration Setup](AI_SETUP.md)** - Claude, Gemini, xAI 통합 가이드
 - **[Language Guide](LANGUAGES.md)** - 24개 언어별 상세 설정 및 요구사항
 - **[Troubleshooting](TROUBLESHOOTING.md)** - 문제 해결 가이드
 - **[Deployment](DEPLOYMENT.md)** - 배포 및 다중 머신 설정
@@ -26,6 +27,7 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 - **Quick Run**: F5 to run, F6 to test (all languages)
 - **Undo Tree**: Visual undo history with persistent undo
 - **Git UI**: LazyGit, Neogit, and Diffview for Git operations
+- **AI Integration**: Claude, Gemini, xAI (Grok) - chat, inline, agents
 
 ### Rust-Specific
 - **rust-analyzer**: Full LSP with clippy integration
@@ -267,6 +269,22 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 | `<Space>f` | Format buffer |
 | `Shift+h` | Previous buffer |
 | `Shift+l` | Next buffer |
+
+### AI Assistant
+| Key | Action |
+|-----|--------|
+| `<Space>ac` | Open AI chat |
+| `<Space>at` | Toggle AI chat |
+| `<Space>aa` | AI actions menu |
+| `<Space>ae` | Explain code |
+| `<Space>af` | Fix bugs |
+| `<Space>ao` | Optimize code |
+| `<Space>aT` | Generate tests |
+| `<Space>ar` | Refactor code |
+| `<Space>ai` | Inline AI suggestions |
+| `<Space>am` | Select AI model (Claude/Gemini/xAI) |
+
+See [AI_SETUP.md](AI_SETUP.md) for API key configuration.
 
 ### LSP
 | Key | Action |
