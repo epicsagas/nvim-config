@@ -6,7 +6,9 @@ return {
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "rust", "go", "lua", "vim", "vimdoc", "markdown", "toml", "yaml", "json",
-          "python", "c", "cpp", "java", "cmake", "make"
+          "python", "c", "cpp", "java", "cmake", "make",
+          "javascript", "typescript", "tsx", "jsdoc",
+          "php", "phpdoc", "html", "css", "scss"
         },
         auto_install = true,
         highlight = {

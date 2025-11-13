@@ -1,6 +1,6 @@
 # Neovim Configuration for Multi-Language Development
 
-Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like features for **Rust, Go, Python, C/C++, and Java**.
+Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like features for **9 languages: Rust, Go, Python, C/C++, Java, TypeScript, JavaScript, and PHP**.
 
 ## Features
 
@@ -46,6 +46,22 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 - **google-java-format**: Auto-formatting
 - **Debugger**: java-debug-adapter
 - **Testing**: Built-in test runner
+
+### TypeScript/JavaScript-Specific
+- **typescript-tools**: Enhanced TypeScript language server
+- **prettier**: Auto-formatting on save
+- **eslint_d**: Fast linting
+- **Debugger**: js-debug-adapter (Node.js)
+- **Inlay hints**: Full type information display
+- **Import management**: Auto-organize and fix imports
+
+### PHP-Specific
+- **intelephense**: Fast PHP language server
+- **phpactor**: Advanced PHP tooling
+- **php-cs-fixer**: Auto-formatting on save
+- **phpstan**: Static analysis
+- **Debugger**: Xdebug support
+- **Class management**: Auto-import and generation
 
 ## Quick Start
 
@@ -212,6 +228,32 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 | `<Space>jT` | Test current method |
 | `<Space>jd` | Debug test class |
 
+### TypeScript/JavaScript-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Quick run (node/tsx) |
+| `F6` | Run tests (npm test) |
+| `<Space>to` | Organize imports |
+| `<Space>ts` | Sort imports |
+| `<Space>tu` | Remove unused imports |
+| `<Space>ti` | Add missing imports |
+| `<Space>tf` | Fix all issues |
+| `<Space>td` | Go to source definition |
+| `<Space>tr` | Rename file |
+
+### PHP-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Quick run (php %) |
+| `F6` | Run tests (phpunit) |
+| `<Space>pm` | Context menu |
+| `<Space>pn` | New class |
+| `<Space>pe` | Expand class |
+| `<Space>pu` | Import class |
+| `<Space>pa` | Import missing classes |
+| `<Space>pt` | Transform code |
+| `<Space>pg` | Generate method |
+
 ### Terminal
 | Key | Action |
 |-----|--------|
@@ -279,6 +321,18 @@ All language servers and tools are automatically installed via Mason on first la
 - `java-debug-adapter`: Debugger
 - `java-test`: Test runner
 
+### TypeScript/JavaScript
+- `typescript-language-server`: Language server
+- `prettier`: Code formatter
+- `eslint_d`: Fast linter
+- `js-debug-adapter`: Debugger
+
+### PHP
+- `intelephense`: Language server
+- `php-cs-fixer`: Code formatter
+- `phpstan`: Static analyzer
+- `php-debug-adapter`: Xdebug debugger
+
 ### Additional Languages
 - `lua_ls`: Lua language server for Neovim configuration
 
@@ -291,6 +345,9 @@ Enabled by default for all supported languages:
 - **Python**: isort + black
 - **C/C++**: clang-format
 - **Java**: google-java-format
+- **TypeScript/JavaScript**: prettier
+- **PHP**: php-cs-fixer
+- **HTML/CSS**: prettier
 - **Lua**: stylua
 
 ### Manual Format

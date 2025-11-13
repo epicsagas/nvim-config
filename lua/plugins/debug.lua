@@ -135,6 +135,60 @@ return {
         },
       }
 
+      -- JavaScript/TypeScript debugging (node)
+      dap.adapters.node2 = {
+        type = "executable",
+        command = "node",
+        args = { vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js" },
+      }
+
+      dap.configurations.javascript = {
+        {
+          type = "node2",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+          sourceMaps = true,
+          protocol = "inspector",
+          console = "integratedTerminal",
+        },
+      }
+
+      dap.configurations.typescript = {
+        {
+          type = "node2",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+          sourceMaps = true,
+          protocol = "inspector",
+          console = "integratedTerminal",
+          runtimeExecutable = "npx",
+          runtimeArgs = { "tsx" },
+        },
+      }
+
+      -- PHP debugging (xdebug)
+      dap.adapters.php = {
+        type = "executable",
+        command = "node",
+        args = { vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/extension/out/phpDebug.js" },
+      }
+
+      dap.configurations.php = {
+        {
+          type = "php",
+          request = "launch",
+          name = "Listen for Xdebug",
+          port = 9003,
+          pathMappings = {
+            ["/var/www/html"] = "${workspaceFolder}",
+          },
+        },
+      }
+
       -- Virtual text
       require("nvim-dap-virtual-text").setup({})
     end,

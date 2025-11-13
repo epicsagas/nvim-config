@@ -139,6 +139,16 @@ return {
           },
         },
         jdtls = {}, -- Java LSP configured via nvim-java plugin
+        tsserver = {}, -- TypeScript/JavaScript LSP configured via typescript-tools
+        intelephense = {
+          settings = {
+            intelephense = {
+              files = {
+                maxSize = 1000000,
+              },
+            },
+          },
+        },
       }
 
       require("mason").setup()
@@ -163,6 +173,13 @@ return {
         "jdtls",
         "java-debug-adapter",
         "java-test",
+        "typescript-language-server",
+        "prettier",
+        "eslint_d",
+        "js-debug-adapter",
+        "intelephense",
+        "php-cs-fixer",
+        "phpstan",
       })
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
