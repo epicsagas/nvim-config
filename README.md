@@ -1,6 +1,11 @@
 # Neovim Configuration for Multi-Language Development
 
-Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like features for **16 languages: Rust, Go, Python, C/C++, Java, TypeScript, JavaScript, PHP, SQL, Kotlin, Dart/Flutter, Ruby, Lisp (Common Lisp & Scheme), Lua, and R**.
+Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like features for **24 languages**:
+
+**Core Languages**: Rust, Go, Python, C/C++, Java, TypeScript, JavaScript, PHP
+**Mobile & Systems**: Swift, Kotlin, Dart/Flutter, C#, Zig, Nim
+**Functional & Scripting**: Elixir, Haskell, Scala, Lisp (Common Lisp & Scheme), Lua, Ruby, R, Bash
+**Data & Query**: SQL
 
 ## Features
 
@@ -110,6 +115,64 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 - **Formatter**: styler for R code
 - **F5/F6**: Start R console, send code to R
 - **REPL integration**: Interactive R development
+
+### C#-Specific
+- **omnisharp**: C# language server with full .NET support
+- **csharp.nvim**: C# IDE features for Neovim
+- **Debugger**: netcoredbg for debugging
+- **F5/F6**: dotnet run, dotnet test
+- **dotnet CLI integration**: Build, test, package management
+
+### Swift-Specific
+- **sourcekit-lsp**: Apple's official Swift language server
+- **xcodebuild.nvim**: Complete Xcode project integration
+- **Debugger**: LLDB integration
+- **F5/F6**: Swift run, test (Package.swift or Xcode project)
+- **Xcode integration**: Build, test, device management
+
+### Bash-Specific
+- **bash-language-server**: Bash LSP
+- **shellcheck**: Shell script linting
+- **shfmt**: Shell script formatter
+- **F5/F6**: Run script, syntax check
+- **DevOps tools**: chmod, debug mode, syntax validation
+
+### Zig-Specific
+- **zls**: Official Zig language server
+- **zig.vim**: Zig syntax and tooling
+- **F5/F6**: zig build run, zig test
+- **Auto-formatting**: zig fmt on save
+- **Build modes**: Debug, ReleaseFast, ReleaseSafe
+
+### Elixir-Specific
+- **elixir-tools.nvim**: Complete Elixir development environment
+- **elixir-ls**: Elixir language server
+- **Debugger**: Elixir debug adapter
+- **F5/F6**: mix run, mix test
+- **Phoenix support**: Phoenix server integration
+- **REPL**: IEx REPL integration
+
+### Haskell-Specific
+- **haskell-language-server**: Official Haskell LSP
+- **haskell-tools.nvim**: Enhanced Haskell features
+- **Formatter**: ormolu formatter
+- **F5/F6**: stack/cabal run, stack/cabal test
+- **Hoogle integration**: Function search
+- **GHCi REPL**: Interactive Haskell development
+
+### Scala-Specific
+- **nvim-metals**: Official Scala Metals integration
+- **scalafmt**: Scala code formatter
+- **F5/F6**: sbt run, sbt test
+- **Build tool**: sbt integration
+- **REPL**: Scala console integration
+
+### Nim-Specific
+- **nim-langserver**: Nim language server
+- **nim.nvim**: Nim syntax and tooling
+- **Formatter**: nimpretty formatter
+- **F5/F6**: nim compile --run, nim test
+- **Build modes**: Debug, Release builds
 
 ## Quick Start
 
@@ -389,6 +452,118 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 | `<Space>rp` | Run script (Rscript) |
 | `<Space>ri` | R interactive |
 
+### C#-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run C# project (dotnet run) |
+| `F6` | Run tests (dotnet test) |
+| `<Space>Cr` | Run |
+| `<Space>Cb` | Build (dotnet build) |
+| `<Space>Ct` | Test |
+| `<Space>Cc` | Clean |
+| `<Space>Cf` | Format (dotnet format) |
+| `<Space>Cn` | New project |
+| `<Space>Ca` | Add package |
+
+### Swift-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run Swift project |
+| `F6` | Run tests |
+| `<Space>Sr` | Run (swift run) |
+| `<Space>Sb` | Build (swift build) |
+| `<Space>St` | Test (swift test) |
+| `<Space>Sf` | Format (swift-format) |
+| `<Space>Sl` | Lint (swiftlint) |
+| `<Space>SX` | Xcode picker |
+| `<Space>SB` | Xcode build |
+| `<Space>ST` | Xcode test |
+| `<Space>SD` | Select device |
+| `<Space>SS` | Select scheme |
+
+### Bash-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run shell script |
+| `F6` | Shellcheck |
+| `<Space>br` | Run |
+| `<Space>bx` | Make executable (chmod +x) |
+| `<Space>bc` | Shellcheck |
+| `<Space>bf` | Format (shfmt) |
+| `<Space>bd` | Debug mode (bash -x) |
+| `<Space>bs` | Syntax check (bash -n) |
+
+### Zig-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Build & run (zig build run) |
+| `F6` | Run tests (zig test) |
+| `<Space>zr` | Run |
+| `<Space>zb` | Build |
+| `<Space>zt` | Test |
+| `<Space>zf` | Format (zig fmt) |
+| `<Space>zc` | AST check |
+| `<Space>zd` | Debug build |
+| `<Space>zR` | Release build |
+
+### Elixir-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run Elixir (mix run) |
+| `F6` | Run tests (mix test) |
+| `<Space>er` | IEx REPL (iex -S mix) |
+| `<Space>et` | Test all |
+| `<Space>eT` | Test current file |
+| `<Space>ef` | Format (mix format) |
+| `<Space>ec` | Compile (mix compile) |
+| `<Space>ed` | Get dependencies |
+| `<Space>eD` | Dialyzer |
+| `<Space>eC` | Credo |
+| `<Space>ep` | Phoenix server |
+
+### Haskell-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run Haskell (stack/cabal run) |
+| `F6` | Run tests |
+| `<Space>hr` | GHCi REPL |
+| `<Space>hb` | Build (stack/cabal) |
+| `<Space>ht` | Test |
+| `<Space>hf` | Format (ormolu) |
+| `<Space>hl` | Lint (hlint) |
+| `<Space>hc` | Compile (ghc) |
+| `<Space>hh` | Hoogle signature |
+| `<Space>he` | Eval all |
+
+### Scala-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run Scala (sbt run) |
+| `F6` | Run tests (sbt test) |
+| `<Space>mc` | Compile cascade |
+| `<Space>mr` | Run |
+| `<Space>mt` | Test |
+| `<Space>mb` | Build (sbt compile) |
+| `<Space>mf` | Format (scalafmt) |
+| `<Space>mi` | Organize imports |
+| `<Space>mh` | Hover worksheet |
+| `<Space>ms` | Metals commands |
+| `<Space>mR` | REPL (sbt console) |
+
+### Nim-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Compile & run (nim compile --run) |
+| `F6` | Run tests (nimble test) |
+| `<Space>nr` | Run |
+| `<Space>nb` | Build (nim compile) |
+| `<Space>nc` | Check (nim check) |
+| `<Space>nt` | Test (nimble test) |
+| `<Space>nf` | Format (nimpretty) |
+| `<Space>nd` | Generate docs |
+| `<Space>nR` | Release build |
+| `<Space>nD` | Debug build |
+
 ### Terminal
 | Key | Action |
 |-----|--------|
@@ -501,6 +676,47 @@ All language servers and tools are automatically installed via Mason on first la
 - `styler`: R formatter (via R package)
 - `R.nvim`: Complete R development environment
 
+### C#
+- `omnisharp`: C# language server
+- `netcoredbg`: .NET debugger
+- `csharpier`: C# formatter (optional, can use dotnet format)
+
+### Swift
+- `sourcekit-lsp`: Swift language server
+- `swiftformat`: Swift formatter
+- `xcodebuild.nvim`: Xcode integration
+
+### Bash
+- `bash-language-server`: Bash LSP
+- `shellcheck`: Shell script analyzer
+- `shfmt`: Shell script formatter
+
+### Zig
+- `zls`: Zig language server
+- Built-in `zig fmt` for formatting
+
+### Elixir
+- `elixir-ls`: Elixir language server
+- Built-in `mix format` for formatting
+- `credo`: Elixir static code analyzer
+- `dialyzer`: Static analyzer for Erlang/Elixir
+
+### Haskell
+- `haskell-language-server`: Haskell LSP
+- `ormolu`: Haskell formatter
+- `hlint`: Haskell linter
+- `hoogle`: Haskell API search
+
+### Scala
+- `nvim-metals`: Scala Metals integration
+- `scalafmt`: Scala formatter
+- `sbt`: Scala build tool
+
+### Nim
+- `nim-langserver`: Nim language server
+- `nimpretty`: Nim formatter
+- Built-in `nim check` for validation
+
 ## Formatting
 
 ### Auto-format on Save
@@ -517,6 +733,14 @@ Enabled by default for all supported languages:
 - **Dart**: dart format
 - **Ruby**: rubocop
 - **R**: styler
+- **C#**: csharpier (or dotnet format)
+- **Swift**: swiftformat
+- **Bash/Zsh**: shfmt
+- **Zig**: zig fmt
+- **Elixir**: mix format
+- **Haskell**: ormolu
+- **Scala**: scalafmt
+- **Nim**: nimpretty
 - **HTML/CSS**: prettier
 - **Lua**: stylua
 

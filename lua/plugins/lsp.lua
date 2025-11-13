@@ -201,6 +201,52 @@ return {
             },
           },
         },
+        omnisharp = {
+          cmd = { "omnisharp" },
+          settings = {
+            FormattingOptions = {
+              EnableEditorConfigSupport = true,
+              OrganizeImports = true,
+            },
+          },
+        },
+        sourcekit = {
+          cmd = { "sourcekit-lsp" },
+          filetypes = { "swift", "objective-c", "objective-cpp" },
+        },
+        bashls = {
+          settings = {
+            bashIde = {
+              globPattern = "*@(.sh|.inc|.bash|.command)",
+            },
+          },
+        },
+        zls = {
+          settings = {
+            zls = {
+              enable_snippets = true,
+              enable_ast_check_diagnostics = true,
+              warn_style = true,
+            },
+          },
+        },
+        -- elixirls is configured via elixir-tools.nvim
+        hls = {
+          settings = {
+            haskell = {
+              formattingProvider = "ormolu",
+              checkProject = true,
+            },
+          },
+        },
+        -- metals is configured via nvim-metals for Scala
+        nim_langserver = {
+          settings = {
+            nim = {
+              nimsuggestPath = "nimsuggest",
+            },
+          },
+        },
       }
 
       require("mason").setup()
@@ -243,6 +289,19 @@ return {
         "r-languageserver",
         "stylua",
         "luacheck",
+        "omnisharp",
+        "netcoredbg",
+        "sourcekit-lsp",
+        "swiftformat",
+        "bash-language-server",
+        "shellcheck",
+        "shfmt",
+        "zls",
+        "elixir-ls",
+        "haskell-language-server",
+        "ormolu",
+        "hlint",
+        "nimpretty",
       })
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

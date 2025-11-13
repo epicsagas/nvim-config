@@ -10,7 +10,8 @@ return {
           "javascript", "typescript", "tsx", "jsdoc",
           "php", "phpdoc", "html", "css", "scss",
           "sql", "kotlin", "dart",
-          "ruby", "commonlisp", "scheme", "r"
+          "ruby", "commonlisp", "scheme", "r",
+          "c_sharp", "swift", "bash", "zig", "elixir", "haskell", "scala", "nim"
         },
         auto_install = true,
         highlight = {

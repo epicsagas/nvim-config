@@ -242,6 +242,47 @@ return {
         },
       }
 
+      -- C# debugging (netcoredbg)
+      dap.adapters.coreclr = {
+        type = "executable",
+        command = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg",
+        args = { "--interpreter=vscode" },
+      }
+
+      dap.configurations.cs = {
+        {
+          type = "coreclr",
+          request = "launch",
+          name = "Launch C# file",
+          program = function()
+            return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+          end,
+        },
+      }
+
+      -- Elixir debugging (elixir-ls)
+      dap.adapters.mix_task = {
+        type = "executable",
+        command = vim.fn.stdpath("data") .. "/mason/packages/elixir-ls/debug_adapter.sh",
+        args = {},
+      }
+
+      dap.configurations.elixir = {
+        {
+          type = "mix_task",
+          request = "launch",
+          name = "Launch Mix Task",
+          task = "test",
+          taskArgs = { "--trace" },
+          startApps = true,
+          projectDir = "${workspaceFolder}",
+          requireFiles = {
+            "test/**/test_helper.exs",
+            "test/**/*_test.exs",
+          },
+        },
+      }
+
       -- Virtual text
       require("nvim-dap-virtual-text").setup({})
     end,
