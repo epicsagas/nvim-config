@@ -31,9 +31,8 @@ return {
           },
         },
 
-        -- Configure adapters for multiple AI providers
+        -- Configure adapters for multiple AI providers (v18.0.0+ structure)
         adapters = {
-          -- HTTP-based adapters (API integrations)
           http = {
             -- Anthropic Claude
             anthropic = function()
@@ -94,20 +93,20 @@ return {
                 },
               })
             end,
+
+            -- Agent Client Protocol adapters (CLI tools)
+            claude_code = function()
+              return require("codecompanion.adapters").extend("claude_code", {
+                -- Claude Code CLI must be installed and in PATH
+              })
+            end,
+
+            gemini_cli = function()
+              return require("codecompanion.adapters").extend("gemini_cli", {
+                -- Gemini CLI must be installed and in PATH
+              })
+            end,
           },
-
-          -- Agent Client Protocol adapters (for CLI tools)
-          claude_code = function()
-            return require("codecompanion.adapters").extend("claude_code", {
-              -- Claude Code CLI must be installed and in PATH
-            })
-          end,
-
-          gemini_cli = function()
-            return require("codecompanion.adapters").extend("gemini_cli", {
-              -- Gemini CLI must be installed and in PATH
-            })
-          end,
         },
 
         -- Display configuration
