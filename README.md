@@ -17,6 +17,8 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 - **Syntax Highlighting**: Treesitter
 - **Debugging**: nvim-dap with UI
 - **Quick Run**: F5 to run, F6 to test (all languages)
+- **Undo Tree**: Visual undo history with persistent undo
+- **Git UI**: LazyGit, Neogit, and Diffview for Git operations
 
 ### Rust-Specific
 - **rust-analyzer**: Full LSP with clippy integration
@@ -573,7 +575,15 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 | `<Space>tv` | Open terminal (vertical split) |
 | `Esc` (in terminal) | Exit terminal mode |
 
+### Undo Tree
+| Key | Action |
+|-----|--------|
+| `<Space>u` | Toggle undo tree |
+
+Navigate through the visual undo history to restore any previous state of your file. Undo history persists across sessions.
+
 ### Git
+**Git Signs (Inline Changes)**:
 | Key | Action |
 |-----|--------|
 | `]c` | Next hunk |
@@ -583,6 +593,31 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 | `<Space>hb` | Blame line |
 | `<Space>hp` | Preview hunk |
 | `<Space>hd` | Diff this |
+
+**LazyGit (Git UI)**:
+| Key | Action |
+|-----|--------|
+| `<Space>gg` | Open LazyGit |
+| `<Space>gc` | LazyGit Config |
+| `<Space>gf` | LazyGit Filter |
+| `<Space>gF` | LazyGit Current File |
+
+**Neogit (Magit-like Git Interface)**:
+| Key | Action |
+|-----|--------|
+| `<Space>gs` | Neogit Status |
+| `<Space>gC` | Neogit Commit |
+| `<Space>gp` | Neogit Push |
+| `<Space>gP` | Neogit Pull |
+| `<Space>gl` | Neogit Log |
+
+**Diffview (Visual Diffs)**:
+| Key | Action |
+|-----|--------|
+| `<Space>gd` | Open Diffview |
+| `<Space>gD` | Close Diffview |
+| `<Space>gh` | Diffview File History (all files) |
+| `<Space>gH` | Diffview Current File History |
 
 ### Diagnostics
 | Key | Action |

@@ -69,4 +69,54 @@ return {
       })
     end,
   },
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      -- LazyGit keybindings
+      vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "LazyGit" })
+      vim.keymap.set("n", "<leader>gc", "<cmd>LazyGitConfig<CR>", { desc = "LazyGit Config" })
+      vim.keymap.set("n", "<leader>gf", "<cmd>LazyGitFilter<CR>", { desc = "LazyGit Filter" })
+      vim.keymap.set("n", "<leader>gF", "<cmd>LazyGitFilterCurrentFile<CR>", { desc = "LazyGit Current File" })
+    end,
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("neogit").setup({
+        integrations = {
+          diffview = true,
+          telescope = true,
+        },
+      })
+
+      -- Neogit keybindings
+      vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", { desc = "Neogit Status" })
+      vim.keymap.set("n", "<leader>gC", "<cmd>Neogit commit<CR>", { desc = "Neogit Commit" })
+      vim.keymap.set("n", "<leader>gp", "<cmd>Neogit push<CR>", { desc = "Neogit Push" })
+      vim.keymap.set("n", "<leader>gP", "<cmd>Neogit pull<CR>", { desc = "Neogit Pull" })
+      vim.keymap.set("n", "<leader>gl", "<cmd>Neogit log<CR>", { desc = "Neogit Log" })
+    end,
+  },
+  {
+    "sindrets/diffview.nvim",
+    config = function()
+      require("diffview").setup({
+        enhanced_diff_hl = true,
+      })
+
+      -- Diffview keybindings
+      vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Diffview Open" })
+      vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewClose<CR>", { desc = "Diffview Close" })
+      vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory<CR>", { desc = "Diffview File History" })
+      vim.keymap.set("n", "<leader>gH", "<cmd>DiffviewFileHistory %<CR>", { desc = "Diffview Current File History" })
+    end,
+  },
 }
