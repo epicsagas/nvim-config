@@ -132,14 +132,24 @@ return {
                 vim.notify("Reset 취소됨", vim.log.levels.INFO)
                 return
               end
-              vim.cmd("Git reset --hard HEAD~1")
-              vim.notify("Hard reset 완료", vim.log.levels.WARN)
+              local result = vim.fn.system("git reset --hard HEAD~1")
+              if vim.v.shell_error == 0 then
+                vim.notify("Hard reset 완료", vim.log.levels.WARN)
+                vim.cmd("checktime") -- Reload buffers
+              else
+                vim.notify("Reset 실패: " .. result, vim.log.levels.ERROR)
+              end
             end)
             return
           end
 
-          vim.cmd("Git reset --" .. reset_type .. " HEAD~1")
-          vim.notify(reset_type:upper() .. " reset 완료", vim.log.levels.INFO)
+          local result = vim.fn.system("git reset --" .. reset_type .. " HEAD~1")
+          if vim.v.shell_error == 0 then
+            vim.notify(reset_type:upper() .. " reset 완료", vim.log.levels.INFO)
+            vim.cmd("checktime") -- Reload buffers
+          else
+            vim.notify("Reset 실패: " .. result, vim.log.levels.ERROR)
+          end
         end)
       end, { desc = "Git Reset (Interactive & Safe)" })
 
@@ -149,8 +159,13 @@ return {
           prompt = "마지막 커밋을 취소하시겠습니까? (변경사항은 유지됨) [y/N]: ",
         }, function(confirm)
           if confirm and confirm:lower() == "y" then
-            vim.cmd("Git reset --soft HEAD~1")
-            vim.notify("Soft reset 완료 (변경사항 유지)", vim.log.levels.INFO)
+            local result = vim.fn.system("git reset --soft HEAD~1")
+            if vim.v.shell_error == 0 then
+              vim.notify("Soft reset 완료 (변경사항 유지)", vim.log.levels.INFO)
+              vim.cmd("checktime") -- Reload buffers
+            else
+              vim.notify("Reset 실패: " .. result, vim.log.levels.ERROR)
+            end
           end
         end)
       end, { desc = "Git Soft Reset (Safe)" })
