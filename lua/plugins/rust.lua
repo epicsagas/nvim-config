@@ -8,8 +8,14 @@ return {
         server = {
           on_attach = function(client, bufnr)
             -- Quick run/test keymaps
-            vim.keymap.set("n", "<F5>", "<cmd>lua _RUST_RUN()<CR>", { desc = "[Rust] Run Project", buffer = bufnr })
-            vim.keymap.set("n", "<F6>", "<cmd>lua _RUST_TEST()<CR>", { desc = "[Rust] Test All", buffer = bufnr })
+            vim.keymap.set("n", "<F5>", function()
+              vim.cmd("split | terminal cargo run")
+              vim.cmd("startinsert")
+            end, { desc = "[Rust] Run Project", buffer = bufnr })
+            vim.keymap.set("n", "<F6>", function()
+              vim.cmd("split | terminal cargo test")
+              vim.cmd("startinsert")
+            end, { desc = "[Rust] Test All", buffer = bufnr })
 
             -- Rust-specific keymaps
             vim.keymap.set("n", "<leader>rr", function()

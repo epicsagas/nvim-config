@@ -36,8 +36,14 @@ return {
         pattern = "go",
         callback = function()
           -- Quick run/test keymaps
-          vim.keymap.set("n", "<F5>", "<cmd>lua _GO_RUN()<CR>", { desc = "[Go] Run Main", buffer = true })
-          vim.keymap.set("n", "<F6>", "<cmd>lua _GO_TEST()<CR>", { desc = "[Go] Test Package", buffer = true })
+          vim.keymap.set("n", "<F5>", function()
+            vim.cmd("split | terminal go run .")
+            vim.cmd("startinsert")
+          end, { desc = "[Go] Run Main", buffer = true })
+          vim.keymap.set("n", "<F6>", function()
+            vim.cmd("split | terminal go test -v ./...")
+            vim.cmd("startinsert")
+          end, { desc = "[Go] Test Package", buffer = true })
 
           -- Go-specific keymaps
           vim.keymap.set("n", "<leader>gr", "<cmd>GoRun<CR>", { desc = "[Go] Run", buffer = true })
