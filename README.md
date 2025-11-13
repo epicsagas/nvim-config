@@ -7,6 +7,13 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 **Functional & Scripting**: Elixir, Haskell, Scala, Lisp (Common Lisp & Scheme), Lua, Ruby, R, Bash
 **Data & Query**: SQL
 
+## 📚 Documentation
+
+- **[Quick Start Guide](QUICKSTART.md)** - 5분 안에 시작하기
+- **[Language Guide](LANGUAGES.md)** - 24개 언어별 상세 설정 및 요구사항
+- **[Troubleshooting](TROUBLESHOOTING.md)** - 문제 해결 가이드
+- **[Deployment](DEPLOYMENT.md)** - 배포 및 다중 머신 설정
+
 ## Features
 
 ### Core
