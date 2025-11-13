@@ -1,6 +1,6 @@
 # Neovim Configuration for Multi-Language Development
 
-Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like features for **9 languages: Rust, Go, Python, C/C++, Java, TypeScript, JavaScript, and PHP**.
+Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like features for **16 languages: Rust, Go, Python, C/C++, Java, TypeScript, JavaScript, PHP, SQL, Kotlin, Dart/Flutter, Ruby, Lisp (Common Lisp & Scheme), Lua, and R**.
 
 ## Features
 
@@ -62,6 +62,54 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 - **phpstan**: Static analysis
 - **Debugger**: Xdebug support
 - **Class management**: Auto-import and generation
+
+### SQL-Specific
+- **sqlls**: SQL language server with linting
+- **sqlfluff**: Auto-formatting and linting
+- **dbext**: Database interaction support
+- **F5/F6**: View SQL files and format
+
+### Kotlin-Specific
+- **kotlin-language-server**: Full Kotlin LSP
+- **ktlint**: Kotlin formatter and linter
+- **Debugger**: Java debug adapter for Kotlin
+- **F5/F6**: Compile & run, Gradle integration
+- **kotlin-vim**: Syntax and tooling support
+
+### Dart/Flutter-Specific
+- **flutter-tools**: Complete Flutter development environment
+- **dartls**: Dart language server
+- **Debugger**: Dart debug adapter
+- **F5/F6**: Flutter run, hot reload, device management
+- **Widget guides**: Closing tags and widget visualization
+- **DevTools**: Integrated Flutter DevTools
+
+### Ruby-Specific
+- **ruby-lsp**: Modern Ruby language server
+- **rubocop**: Formatter and linter
+- **Debugger**: Ruby debug adapter
+- **F5/F6**: Run Ruby files, RSpec tests
+- **vim-ruby**: Enhanced Ruby syntax and tooling
+
+### Lisp-Specific
+- **vlime**: Common Lisp and Scheme support
+- **F5/F6**: Run scripts, REPL integration
+- **SBCL**: Common Lisp with SBCL
+- **Racket**: Scheme with Racket support
+
+### Lua-Specific
+- **lua_ls**: Lua language server (already configured for Neovim)
+- **stylua**: Lua formatter
+- **luacheck**: Lua linter
+- **F5/F6**: Run Lua files, source Neovim configs
+- **lazydev**: Enhanced Neovim Lua development
+
+### R-Specific
+- **r-language-server**: R language server
+- **R.nvim**: Complete R development environment
+- **Formatter**: styler for R code
+- **F5/F6**: Start R console, send code to R
+- **REPL integration**: Interactive R development
 
 ## Quick Start
 
@@ -254,6 +302,93 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 | `<Space>pt` | Transform code |
 | `<Space>pg` | Generate method |
 
+### SQL-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | View SQL file |
+| `F6` | Format SQL file |
+| `<Space>sf` | Format (sqlfluff) |
+| `<Space>sl` | Lint (sqlfluff) |
+| `<Space>sc` | View content |
+
+### Kotlin-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Compile & run (kotlinc) |
+| `F6` | Run tests (Gradle/kotlinc) |
+| `<Space>kr` | Run Kotlin file |
+| `<Space>kb` | Build (Gradle) |
+| `<Space>kt` | Test (Gradle) |
+| `<Space>kc` | Format (ktlint) |
+
+### Dart/Flutter-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run Dart/Flutter |
+| `F6` | Run tests |
+| `<Space>dr` | Flutter run |
+| `<Space>dq` | Flutter quit |
+| `<Space>dR` | Flutter restart |
+| `<Space>dh` | Hot reload |
+| `<Space>dd` | Devices |
+| `<Space>de` | Emulators |
+| `<Space>do` | Outline toggle |
+| `<Space>dl` | DevLog |
+| `<Space>dt` | DevTools |
+| `<Space>dc` | Copy profiler URL |
+| `<Space>dL` | LSP restart |
+| `<Space>df` | Format (dart format) |
+| `<Space>da` | Analyze |
+| `<Space>dp` | Pub get |
+
+### Ruby-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run Ruby file |
+| `F6` | Run RSpec tests |
+| `<Space>Rr` | Run |
+| `<Space>Rt` | Test (RSpec) |
+| `<Space>Rb` | Bundle install |
+| `<Space>Rf` | Format (Rubocop) |
+| `<Space>Rl` | Lint (Rubocop) |
+| `<Space>Ri` | IRB REPL |
+
+### Lisp-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run Lisp/Scheme file |
+| `F6` | Load in REPL |
+| `<Space>lr` | Start REPL |
+| `<Space>ll` | Load file |
+| `<Space>le` | Execute file |
+
+### Lua-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Run Lua file |
+| `F6` | Source file (Neovim) |
+| `<Space>Lr` | Run |
+| `<Space>Ls` | Source |
+| `<Space>Lf` | Format (stylua) |
+| `<Space>Lc` | Check (luacheck) |
+
+### R-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Start R console |
+| `F6` | Send file to R |
+| `<Space>rr` | Start console |
+| `<Space>rq` | Close console |
+| `<Space>rf` | Send file |
+| `<Space>rl` | Send line |
+| `<Space>rs` | Send selection (visual) |
+| `<Space>rh` | Help |
+| `<Space>ro` | Object browser |
+| `<Space>rv` | View DataFrame |
+| `<Space>rc` | Clear all |
+| `<Space>rp` | Run script (Rscript) |
+| `<Space>ri` | R interactive |
+
 ### Terminal
 | Key | Action |
 |-----|--------|
@@ -333,8 +468,38 @@ All language servers and tools are automatically installed via Mason on first la
 - `phpstan`: Static analyzer
 - `php-debug-adapter`: Xdebug debugger
 
-### Additional Languages
-- `lua_ls`: Lua language server for Neovim configuration
+### SQL
+- `sqlls`: SQL language server
+- `sqlfluff`: Formatter and linter
+- `sql-formatter`: SQL formatter
+
+### Kotlin
+- `kotlin-language-server`: Kotlin LSP
+- `ktlint`: Formatter and linter
+
+### Dart/Flutter
+- `dartls`: Dart language server (via Flutter SDK)
+- `dart-debug-adapter`: Debugger
+- `flutter-tools`: Complete Flutter tooling
+
+### Ruby
+- `ruby-lsp`: Modern Ruby language server
+- `rubocop`: Formatter and linter
+
+### Lisp
+- SBCL for Common Lisp (external dependency)
+- Racket for Scheme (external dependency)
+- `vlime`: Neovim plugin for Lisp development
+
+### Lua
+- `lua_ls`: Lua language server
+- `stylua`: Lua formatter
+- `luacheck`: Lua linter
+
+### R
+- `r-languageserver`: R language server
+- `styler`: R formatter (via R package)
+- `R.nvim`: Complete R development environment
 
 ## Formatting
 
@@ -347,6 +512,11 @@ Enabled by default for all supported languages:
 - **Java**: google-java-format
 - **TypeScript/JavaScript**: prettier
 - **PHP**: php-cs-fixer
+- **SQL**: sqlfluff
+- **Kotlin**: ktlint
+- **Dart**: dart format
+- **Ruby**: rubocop
+- **R**: styler
 - **HTML/CSS**: prettier
 - **Lua**: stylua
 

@@ -8,7 +8,9 @@ return {
           "rust", "go", "lua", "vim", "vimdoc", "markdown", "toml", "yaml", "json",
           "python", "c", "cpp", "java", "cmake", "make",
           "javascript", "typescript", "tsx", "jsdoc",
-          "php", "phpdoc", "html", "css", "scss"
+          "php", "phpdoc", "html", "css", "scss",
+          "sql", "kotlin", "dart",
+          "ruby", "commonlisp", "scheme", "r"
         },
         auto_install = true,
         highlight = {

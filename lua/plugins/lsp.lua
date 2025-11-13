@@ -149,6 +149,58 @@ return {
             },
           },
         },
+        sqlls = {
+          settings = {
+            sql = {
+              database = "mysql",
+              linter = {
+                enable = true,
+              },
+            },
+          },
+        },
+        kotlin_language_server = {
+          settings = {
+            kotlin = {
+              compiler = {
+                jvm = {
+                  target = "1.8",
+                },
+              },
+              linting = {
+                debounceTime = 250,
+              },
+            },
+          },
+        },
+        -- dartls is configured via flutter-tools.nvim for Flutter projects
+        dartls = {
+          settings = {
+            dart = {
+              completeFunctionCalls = true,
+              showTodos = true,
+            },
+          },
+        },
+        ruby_lsp = {
+          settings = {
+            ruby = {
+              lint = {
+                enabled = true,
+              },
+            },
+          },
+        },
+        r_language_server = {
+          settings = {
+            r = {
+              lsp = {
+                diagnostics = true,
+                rich_documentation = true,
+              },
+            },
+          },
+        },
       }
 
       require("mason").setup()
@@ -180,6 +232,17 @@ return {
         "intelephense",
         "php-cs-fixer",
         "phpstan",
+        "sqlls",
+        "sqlfluff",
+        "sql-formatter",
+        "kotlin-language-server",
+        "ktlint",
+        "dart-debug-adapter",
+        "ruby-lsp",
+        "rubocop",
+        "r-languageserver",
+        "stylua",
+        "luacheck",
       })
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

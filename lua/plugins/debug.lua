@@ -189,6 +189,59 @@ return {
         },
       }
 
+      -- Kotlin debugging (uses Java debug adapter)
+      dap.configurations.kotlin = {
+        {
+          type = "java",
+          request = "launch",
+          name = "Launch Kotlin file",
+          program = "${file}",
+          projectName = "",
+          javaExec = "java",
+          mainClass = "",
+          vmArgs = "",
+        },
+      }
+
+      -- Dart/Flutter debugging (configured via flutter-tools.nvim)
+      dap.adapters.dart = {
+        type = "executable",
+        command = "dart",
+        args = { "debug_adapter" },
+      }
+
+      dap.configurations.dart = {
+        {
+          type = "dart",
+          request = "launch",
+          name = "Launch Dart file",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+        },
+      }
+
+      -- Ruby debugging
+      dap.adapters.ruby = {
+        type = "executable",
+        command = "bundle",
+        args = { "exec", "readapt", "stdio" },
+      }
+
+      dap.configurations.ruby = {
+        {
+          type = "ruby",
+          request = "launch",
+          name = "Launch Ruby file",
+          program = "${file}",
+        },
+        {
+          type = "ruby",
+          request = "attach",
+          name = "Attach to running process",
+          localfs = true,
+        },
+      }
+
       -- Virtual text
       require("nvim-dap-virtual-text").setup({})
     end,
