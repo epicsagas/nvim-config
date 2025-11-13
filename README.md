@@ -1,6 +1,6 @@
-# Neovim Configuration for Rust & Go Development
+# Neovim Configuration for Multi-Language Development
 
-Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like features for Rust and Go.
+Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like features for **Rust, Go, Python, C/C++, and Java**.
 
 ## Features
 
@@ -11,6 +11,7 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 - **Fuzzy Finding**: Telescope for files, grep, symbols
 - **Syntax Highlighting**: Treesitter
 - **Debugging**: nvim-dap with UI
+- **Quick Run**: F5 to run, F6 to test (all languages)
 
 ### Rust-Specific
 - **rust-analyzer**: Full LSP with clippy integration
@@ -24,6 +25,27 @@ Modern Neovim setup with full LSP support, debugging, formatting, and IDE-like f
 - **Auto-formatting**: goimports + gofumpt on save
 - **Testing**: Integrated test runner
 - **Debugger**: Delve for debugging
+
+### Python-Specific
+- **pyright**: Fast Python language server
+- **black + isort**: Auto-formatting on save
+- **venv-selector**: Virtual environment management
+- **Debugger**: debugpy for debugging
+- **Testing**: pytest integration
+
+### C/C++-Specific
+- **clangd**: Powerful C/C++ language server
+- **clang-format**: Auto-formatting on save
+- **clangd_extensions**: Enhanced C/C++ features
+- **Debugger**: codelldb for debugging
+- **Header/Source switch**: Quick navigation
+
+### Java-Specific
+- **jdtls**: Eclipse JDT language server
+- **nvim-java**: Full Java IDE features
+- **google-java-format**: Auto-formatting
+- **Debugger**: java-debug-adapter
+- **Testing**: Built-in test runner
 
 ## Quick Start
 
@@ -164,6 +186,32 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 | `<Space>gm` | Go mod tidy |
 | `<Space>ge` | Go generate |
 
+### Python-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Quick run (python3 %) |
+| `F6` | Quick test (pytest) |
+| `<Space>vs` | Select virtual environment |
+| `<Space>pc` | Check syntax (compileall) |
+| `<Space>pi` | Install requirements.txt |
+
+### C/C++-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Compile & run (gcc/g++) |
+| `F6` | Compile with debug info |
+| `<Space>ch` | Switch header/source |
+
+### Java-Specific
+| Key | Action |
+|-----|--------|
+| `F5` | Compile & run (javac + java) |
+| `F6` | Run Maven tests |
+| `<Space>jc` | Run main class |
+| `<Space>jt` | Test current class |
+| `<Space>jT` | Test current method |
+| `<Space>jd` | Debug test class |
+
 ### Terminal
 | Key | Action |
 |-----|--------|
@@ -200,31 +248,49 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 
 ## Language Server Setup
 
-### Rust
-The configuration automatically installs:
-- `rust-analyzer`: Language server
-- `codelldb`: Debugger
-- `rustfmt`: Formatter (via cargo)
+All language servers and tools are automatically installed via Mason on first launch.
 
-Clippy is enabled by default for enhanced diagnostics.
+### Rust
+- `rust-analyzer`: Language server with clippy integration
+- `codelldb`: Debugger
+- `rustfmt`: Formatter
 
 ### Go
-The configuration automatically installs:
 - `gopls`: Language server
 - `goimports`: Import management
 - `gofumpt`: Strict formatter
 - `delve`: Debugger
 - Go tooling: gomodifytags, impl
 
+### Python
+- `pyright`: Fast type-aware language server
+- `black`: Code formatter
+- `isort`: Import sorter
+- `debugpy`: Debugger
+
+### C/C++
+- `clangd`: Language server with clang-tidy
+- `clang-format`: Code formatter
+- `codelldb`: Debugger
+
+### Java
+- `jdtls`: Eclipse JDT language server
+- `google-java-format`: Code formatter
+- `java-debug-adapter`: Debugger
+- `java-test`: Test runner
+
 ### Additional Languages
-The LSP setup includes `lua_ls` for Neovim configuration editing.
+- `lua_ls`: Lua language server for Neovim configuration
 
 ## Formatting
 
 ### Auto-format on Save
-Enabled by default for:
+Enabled by default for all supported languages:
 - **Rust**: rustfmt
 - **Go**: goimports + gofumpt
+- **Python**: isort + black
+- **C/C++**: clang-format
+- **Java**: google-java-format
 - **Lua**: stylua
 
 ### Manual Format

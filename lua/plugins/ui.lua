@@ -66,13 +66,16 @@ return {
       require("which-key").setup()
 
       require("which-key").add({
-        { "<leader>c", group = "Code" },
+        { "<leader>c", group = "Code/C++" },
         { "<leader>d", group = "Debug" },
         { "<leader>f", group = "Find/Format" },
         { "<leader>g", group = "Go" },
         { "<leader>h", group = "Git Hunk" },
+        { "<leader>j", group = "Java" },
+        { "<leader>p", group = "Python" },
         { "<leader>r", group = "Rust/Rename" },
         { "<leader>t", group = "Terminal/Toggle" },
+        { "<leader>v", group = "VirtualEnv" },
         { "<leader>w", group = "Workspace" },
         { "<leader>x", group = "Diagnostics" },
       })

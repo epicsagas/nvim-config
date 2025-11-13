@@ -110,6 +110,35 @@ return {
             },
           },
         },
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+                typeCheckingMode = "basic",
+              },
+            },
+          },
+        },
+        clangd = {
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--header-insertion=iwyu",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+          },
+          init_options = {
+            clangdFileStatus = true,
+            usePlaceholders = true,
+            completeUnimported = true,
+            semanticHighlighting = true,
+          },
+        },
+        jdtls = {}, -- Java LSP configured via nvim-java plugin
       }
 
       require("mason").setup()
@@ -124,6 +153,16 @@ return {
         "gomodifytags",
         "impl",
         "delve",
+        "pyright",
+        "black",
+        "isort",
+        "debugpy",
+        "clangd",
+        "clang-format",
+        "codelldb",
+        "jdtls",
+        "java-debug-adapter",
+        "java-test",
       })
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
