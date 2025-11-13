@@ -103,6 +103,57 @@ return {
       vim.keymap.set("n", "<leader>gp", "<cmd>Neogit push<CR>", { desc = "Neogit Push" })
       vim.keymap.set("n", "<leader>gP", "<cmd>Neogit pull<CR>", { desc = "Neogit Pull" })
       vim.keymap.set("n", "<leader>gl", "<cmd>Neogit log<CR>", { desc = "Neogit Log" })
+
+      -- Safe Git Reset with interactive selection
+      vim.keymap.set("n", "<leader>gR", function()
+        vim.ui.select({
+          "soft (안전: 커밋만 취소, 변경사항 유지)",
+          "mixed (중간: 커밋+스테이징 취소, 파일 유지)",
+          "hard (위험: 모든 변경사항 삭제)",
+        }, {
+          prompt = "Reset 방식 선택:",
+        }, function(choice)
+          if not choice then
+            return
+          end
+
+          local reset_type
+          if choice:match("^soft") then
+            reset_type = "soft"
+          elseif choice:match("^mixed") then
+            reset_type = "mixed"
+          elseif choice:match("^hard") then
+            reset_type = "hard"
+            -- Hard reset confirmation
+            vim.ui.input({
+              prompt = "⚠️  Hard reset은 모든 변경사항을 삭제합니다. 'yes'를 입력하세요: ",
+            }, function(confirm)
+              if confirm ~= "yes" then
+                vim.notify("Reset 취소됨", vim.log.levels.INFO)
+                return
+              end
+              vim.cmd("Git reset --hard HEAD~1")
+              vim.notify("Hard reset 완료", vim.log.levels.WARN)
+            end)
+            return
+          end
+
+          vim.cmd("Git reset --" .. reset_type .. " HEAD~1")
+          vim.notify(reset_type:upper() .. " reset 완료", vim.log.levels.INFO)
+        end)
+      end, { desc = "Git Reset (Interactive & Safe)" })
+
+      -- Quick soft reset (safest option)
+      vim.keymap.set("n", "<leader>gr", function()
+        vim.ui.input({
+          prompt = "마지막 커밋을 취소하시겠습니까? (변경사항은 유지됨) [y/N]: ",
+        }, function(confirm)
+          if confirm and confirm:lower() == "y" then
+            vim.cmd("Git reset --soft HEAD~1")
+            vim.notify("Soft reset 완료 (변경사항 유지)", vim.log.levels.INFO)
+          end
+        end)
+      end, { desc = "Git Soft Reset (Safe)" })
     end,
   },
   {

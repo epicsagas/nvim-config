@@ -610,6 +610,8 @@ Navigate through the visual undo history to restore any previous state of your f
 | `<Space>gp` | Neogit Push |
 | `<Space>gP` | Neogit Pull |
 | `<Space>gl` | Neogit Log |
+| `<Space>gr` | **Quick Soft Reset** (가장 안전) |
+| `<Space>gR` | **Interactive Reset** (soft/mixed/hard 선택) |
 
 **Diffview (Visual Diffs)**:
 | Key | Action |
@@ -618,6 +620,17 @@ Navigate through the visual undo history to restore any previous state of your f
 | `<Space>gD` | Close Diffview |
 | `<Space>gh` | Diffview File History (all files) |
 | `<Space>gH` | Diffview Current File History |
+
+**Safe Git Reset Features**:
+- **`<Space>gr`**: Quick soft reset (가장 안전)
+  - 마지막 커밋만 취소
+  - 모든 변경사항은 유지됨
+  - 확인 메시지 표시
+
+- **`<Space>gR`**: Interactive reset (선택형)
+  - **Soft**: 커밋만 취소, 변경사항 + staging 유지
+  - **Mixed**: 커밋 + staging 취소, 파일 내용 유지
+  - **Hard**: 모든 변경사항 완전 삭제 (⚠️ 'yes' 입력 필요)
 
 ### Diagnostics
 | Key | Action |
