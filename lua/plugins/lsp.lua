@@ -139,7 +139,7 @@ return {
           },
         },
         jdtls = {}, -- Java LSP configured via nvim-java plugin
-        tsserver = {}, -- TypeScript/JavaScript LSP configured via typescript-tools
+        -- tsserver is configured via typescript-tools.nvim plugin, not lspconfig
         intelephense = {
           settings = {
             intelephense = {
