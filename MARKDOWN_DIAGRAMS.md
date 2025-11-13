@@ -102,9 +102,10 @@ sudo apt install graphviz
 ### PlantUML
 | 키 | 기능 |
 |-----|------|
-| `<Space>pu` | PlantUML 프리뷰 열기 |
-| `<Space>ps` | PlantUML 이미지 저장 |
-| `<Space>pt` | PlantUML 토글 |
+| `<Space>pl` | PlantUML 렌더링 (nvim-soil) |
+| `<Space>pu` | PlantUML 브라우저 프리뷰 열기 |
+| `<Space>ps` | PlantUML 이미지 저장 (PNG) |
+| `<Space>pt` | PlantUML 프리뷰 토글 |
 
 ### Table Mode
 | 키 | 기능 |
@@ -535,7 +536,8 @@ database "MongoDB" {
 | **Markdown Preview** | `<Space>mp` | 브라우저 프리뷰 열기 (Mermaid 포함) |
 | | `<Space>ms` | 프리뷰 중지 |
 | | `<Space>mt` | 프리뷰 토글 |
-| **PlantUML** | `<Space>pu` | PlantUML 프리뷰 열기 |
+| **PlantUML** | `<Space>pl` | 렌더링 (nvim-soil, 이미지 뷰어 자동 열림) |
+| | `<Space>pu` | 브라우저 프리뷰 열기 |
 | | `<Space>ps` | PNG 저장 |
 | | `<Space>pt` | 프리뷰 토글 |
 | **Table Mode** | `<Space>tm` | 테이블 자동 정렬 모드 |

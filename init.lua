@@ -47,5 +47,16 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Focus right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Focus lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Focus upper window" })
 
+-- Filetype settings
+vim.filetype.add({
+  extension = {
+    puml = "plantuml",
+    plantuml = "plantuml",
+  },
+  pattern = {
+    [".*%.pu"] = "plantuml",
+  },
+})
+
 -- Load plugins
 require("lazy").setup("plugins")

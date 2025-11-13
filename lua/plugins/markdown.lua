@@ -145,11 +145,14 @@ return {
       vim.g.mkdp_page_title = "「${name}」"
       vim.g.mkdp_theme = "dark" -- or 'light'
 
-      -- Preview options
+      -- Preview options with PlantUML support
       vim.g.mkdp_preview_options = {
         mkit = {},
         katex = {},
-        uml = {}, -- Mermaid support
+        uml = {
+          server = "http://www.plantuml.com/plantuml", -- PlantUML server
+          imageFormat = "svg", -- svg or png
+        },
         maid = {}, -- Mermaid diagrams
         disable_sync_scroll = 0,
         sync_scroll_type = "middle",
@@ -175,15 +178,18 @@ return {
     ft = { "plantuml" },
     config = function()
       require("soil").setup({
-        -- If you want to use Plant UML jar version instead of the install version
-        puml_jar = nil, -- Set to jar path if using jar
-        -- If you want to customize the image showed when running this plugin
+        -- Use system plantuml command
+        puml_jar = nil,
+        -- Image settings
         image = {
-          darkmode = true, -- Enable or disable darkmode
-          format = "png", -- Choose your image format
-          execute_to_open = nil, -- Command to open image (nil = default viewer)
+          darkmode = true,
+          format = "png",
+          execute_to_open = "open", -- macOS open command
         },
       })
+
+      -- Keybinding for nvim-soil
+      vim.keymap.set("n", "<leader>pl", "<cmd>Soil<cr>", { desc = "PlantUML Render (Soil)" })
     end,
   },
 

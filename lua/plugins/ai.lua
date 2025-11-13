@@ -33,65 +33,68 @@ return {
 
         -- Configure adapters for multiple AI providers
         adapters = {
-          -- Anthropic Claude
-          anthropic = function()
-            return require("codecompanion.adapters").extend("anthropic", {
-              env = {
-                api_key = "ANTHROPIC_API_KEY",
-              },
-              schema = {
-                model = {
-                  default = "claude-sonnet-4-20250514",
-                  choices = {
-                    "claude-opus-4-20250514",
-                    "claude-sonnet-4-20250514",
-                    "claude-3-7-sonnet-20250219",
-                    "claude-3-5-sonnet-20241022",
+          -- HTTP-based adapters (API integrations)
+          http = {
+            -- Anthropic Claude
+            anthropic = function()
+              return require("codecompanion.adapters").extend("anthropic", {
+                env = {
+                  api_key = "ANTHROPIC_API_KEY",
+                },
+                schema = {
+                  model = {
+                    default = "claude-sonnet-4-20250514",
+                    choices = {
+                      "claude-opus-4-20250514",
+                      "claude-sonnet-4-20250514",
+                      "claude-3-7-sonnet-20250219",
+                      "claude-3-5-sonnet-20241022",
+                    },
                   },
                 },
-              },
-            })
-          end,
+              })
+            end,
 
-          -- Google Gemini
-          gemini = function()
-            return require("codecompanion.adapters").extend("gemini", {
-              env = {
-                api_key = "GEMINI_API_KEY",
-              },
-              schema = {
-                model = {
-                  default = "gemini-2.0-flash-exp",
-                  choices = {
-                    "gemini-2.0-flash-exp",
-                    "gemini-2.0-flash-thinking-exp",
-                    "gemini-exp-1206",
-                    "gemini-1.5-pro",
-                    "gemini-1.5-flash",
+            -- Google Gemini
+            gemini = function()
+              return require("codecompanion.adapters").extend("gemini", {
+                env = {
+                  api_key = "GEMINI_API_KEY",
+                },
+                schema = {
+                  model = {
+                    default = "gemini-2.0-flash-exp",
+                    choices = {
+                      "gemini-2.0-flash-exp",
+                      "gemini-2.0-flash-thinking-exp",
+                      "gemini-exp-1206",
+                      "gemini-1.5-pro",
+                      "gemini-1.5-flash",
+                    },
                   },
                 },
-              },
-            })
-          end,
+              })
+            end,
 
-          -- xAI (Grok)
-          xai = function()
-            return require("codecompanion.adapters").extend("xai", {
-              env = {
-                api_key = "XAI_API_KEY",
-              },
-              schema = {
-                model = {
-                  default = "grok-2-1212",
-                  choices = {
-                    "grok-2-1212",
-                    "grok-2-vision-1212",
-                    "grok-beta",
+            -- xAI (Grok)
+            xai = function()
+              return require("codecompanion.adapters").extend("xai", {
+                env = {
+                  api_key = "XAI_API_KEY",
+                },
+                schema = {
+                  model = {
+                    default = "grok-2-1212",
+                    choices = {
+                      "grok-2-1212",
+                      "grok-2-vision-1212",
+                      "grok-beta",
+                    },
                   },
                 },
-              },
-            })
-          end,
+              })
+            end,
+          },
 
           -- Agent Client Protocol adapters (for CLI tools)
           claude_code = function()
