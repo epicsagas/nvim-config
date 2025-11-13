@@ -7,31 +7,32 @@ return {
       vim.g.rustaceanvim = {
         server = {
           on_attach = function(client, bufnr)
+            -- Quick run/test keymaps
+            vim.keymap.set("n", "<F5>", "<cmd>lua _RUST_RUN()<CR>", { desc = "[Rust] Run Project", buffer = bufnr })
+            vim.keymap.set("n", "<F6>", "<cmd>lua _RUST_TEST()<CR>", { desc = "[Rust] Test All", buffer = bufnr })
+
             -- Rust-specific keymaps
-            vim.keymap.set("n", "<leader>ca", function()
-              vim.cmd.RustLsp("codeAction")
-            end, { desc = "Code Action", buffer = bufnr })
-            vim.keymap.set("n", "<leader>dr", function()
-              vim.cmd.RustLsp("debuggables")
-            end, { desc = "Rust Debuggables", buffer = bufnr })
             vim.keymap.set("n", "<leader>rr", function()
               vim.cmd.RustLsp("runnables")
-            end, { desc = "Rust Runnables", buffer = bufnr })
+            end, { desc = "[Rust] Runnables Menu", buffer = bufnr })
             vim.keymap.set("n", "<leader>rt", function()
               vim.cmd.RustLsp("testables")
-            end, { desc = "Rust Testables", buffer = bufnr })
+            end, { desc = "[Rust] Testables Menu", buffer = bufnr })
+            vim.keymap.set("n", "<leader>rd", function()
+              vim.cmd.RustLsp("debuggables")
+            end, { desc = "[Rust] Debuggables", buffer = bufnr })
             vim.keymap.set("n", "<leader>re", function()
               vim.cmd.RustLsp("expandMacro")
-            end, { desc = "Expand Macro", buffer = bufnr })
+            end, { desc = "[Rust] Expand Macro", buffer = bufnr })
             vim.keymap.set("n", "<leader>rc", function()
               vim.cmd.RustLsp("openCargo")
-            end, { desc = "Open Cargo.toml", buffer = bufnr })
+            end, { desc = "[Rust] Open Cargo.toml", buffer = bufnr })
             vim.keymap.set("n", "<leader>rp", function()
               vim.cmd.RustLsp("parentModule")
-            end, { desc = "Parent Module", buffer = bufnr })
+            end, { desc = "[Rust] Parent Module", buffer = bufnr })
             vim.keymap.set("n", "<leader>rh", function()
               vim.cmd.RustLsp({ "hover", "actions" })
-            end, { desc = "Hover Actions", buffer = bufnr })
+            end, { desc = "[Rust] Hover Actions", buffer = bufnr })
           end,
         },
       }

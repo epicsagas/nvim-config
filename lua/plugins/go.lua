@@ -35,15 +35,21 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "go",
         callback = function()
-          vim.keymap.set("n", "<leader>gt", "<cmd>GoTest<CR>", { desc = "Go Test", buffer = true })
-          vim.keymap.set("n", "<leader>gT", "<cmd>GoTestFunc<CR>", { desc = "Go Test Function", buffer = true })
-          vim.keymap.set("n", "<leader>gc", "<cmd>GoCoverage<CR>", { desc = "Go Coverage", buffer = true })
-          vim.keymap.set("n", "<leader>gC", "<cmd>GoCoverageClear<CR>", { desc = "Clear Coverage", buffer = true })
-          vim.keymap.set("n", "<leader>gi", "<cmd>GoIfErr<CR>", { desc = "Go If Err", buffer = true })
-          vim.keymap.set("n", "<leader>gf", "<cmd>GoFillStruct<CR>", { desc = "Go Fill Struct", buffer = true })
-          vim.keymap.set("n", "<leader>ga", "<cmd>GoAlt<CR>", { desc = "Go Alternate", buffer = true })
-          vim.keymap.set("n", "<leader>gm", "<cmd>GoModTidy<CR>", { desc = "Go Mod Tidy", buffer = true })
-          vim.keymap.set("n", "<leader>ge", "<cmd>GoGenerate<CR>", { desc = "Go Generate", buffer = true })
+          -- Quick run/test keymaps
+          vim.keymap.set("n", "<F5>", "<cmd>lua _GO_RUN()<CR>", { desc = "[Go] Run Main", buffer = true })
+          vim.keymap.set("n", "<F6>", "<cmd>lua _GO_TEST()<CR>", { desc = "[Go] Test Package", buffer = true })
+
+          -- Go-specific keymaps
+          vim.keymap.set("n", "<leader>gr", "<cmd>GoRun<CR>", { desc = "[Go] Run", buffer = true })
+          vim.keymap.set("n", "<leader>gt", "<cmd>GoTest<CR>", { desc = "[Go] Test All", buffer = true })
+          vim.keymap.set("n", "<leader>gT", "<cmd>GoTestFunc<CR>", { desc = "[Go] Test Function", buffer = true })
+          vim.keymap.set("n", "<leader>gc", "<cmd>GoCoverage<CR>", { desc = "[Go] Coverage", buffer = true })
+          vim.keymap.set("n", "<leader>gC", "<cmd>GoCoverageClear<CR>", { desc = "[Go] Clear Coverage", buffer = true })
+          vim.keymap.set("n", "<leader>gi", "<cmd>GoIfErr<CR>", { desc = "[Go] If Err", buffer = true })
+          vim.keymap.set("n", "<leader>gf", "<cmd>GoFillStruct<CR>", { desc = "[Go] Fill Struct", buffer = true })
+          vim.keymap.set("n", "<leader>ga", "<cmd>GoAlt<CR>", { desc = "[Go] Alternate File", buffer = true })
+          vim.keymap.set("n", "<leader>gm", "<cmd>GoModTidy<CR>", { desc = "[Go] Mod Tidy", buffer = true })
+          vim.keymap.set("n", "<leader>ge", "<cmd>GoGenerate<CR>", { desc = "[Go] Generate", buffer = true })
         end,
       })
     end,

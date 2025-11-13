@@ -89,6 +89,13 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 ### Leader Key
 `<Space>` is the leader key
 
+### Quick Run/Test
+| Key | Action |
+|-----|--------|
+| `F5` | **Run** current file (Rust: cargo run, Go: go run) |
+| `F6` | **Test** current package (Rust: cargo test, Go: go test) |
+| `Ctrl+\` | Toggle floating terminal |
+
 ### General
 | Key | Action |
 |-----|--------|
@@ -119,35 +126,52 @@ ssh user@remote "cd ~/.config/nvim && ./install.sh"
 ### Debugging
 | Key | Action |
 |-----|--------|
-| `F5` | Start/Continue debugging |
-| `F1` | Step into |
-| `F2` | Step over |
-| `F3` | Step out |
-| `F7` | Toggle debug UI |
-| `<Space>b` | Toggle breakpoint |
-| `<Space>B` | Conditional breakpoint |
+| `F9` | Start/Continue debugging |
+| `F10` | Step over |
+| `F11` | Step into |
+| `Shift+F11` | Step out |
+| `<Space>db` | Toggle breakpoint |
+| `<Space>dB` | Conditional breakpoint |
+| `<Space>du` | Toggle debug UI |
+| `<Space>dc` | Clear all breakpoints |
+| `<Space>dt` | Terminate debug session |
 
 ### Rust-Specific
 | Key | Action |
 |-----|--------|
-| `<Space>rr` | Run runnables |
-| `<Space>rt` | Run testables |
-| `<Space>dr` | Debug runnables |
+| `F5` | Quick run (cargo run) |
+| `F6` | Quick test (cargo test) |
+| `<Space>rr` | Runnables menu (advanced) |
+| `<Space>rt` | Testables menu (advanced) |
+| `<Space>rd` | Debuggables menu |
 | `<Space>re` | Expand macro |
 | `<Space>rc` | Open Cargo.toml |
+| `<Space>rp` | Go to parent module |
 | `<Space>rh` | Hover actions |
 
 ### Go-Specific
 | Key | Action |
 |-----|--------|
-| `<Space>gt` | Run tests |
-| `<Space>gT` | Run test function |
-| `<Space>gc` | Show coverage |
-| `<Space>gi` | Add if err |
-| `<Space>gf` | Fill struct |
-| `<Space>ga` | Go to alternate file |
+| `F5` | Quick run (go run) |
+| `F6` | Quick test (go test) |
+| `<Space>gr` | Go run |
+| `<Space>gt` | Test all |
+| `<Space>gT` | Test function under cursor |
+| `<Space>gc` | Show test coverage |
+| `<Space>gi` | Add if err block |
+| `<Space>gf` | Fill struct fields |
+| `<Space>ga` | Go to alternate file (test ↔ impl) |
 | `<Space>gm` | Go mod tidy |
 | `<Space>ge` | Go generate |
+
+### Terminal
+| Key | Action |
+|-----|--------|
+| `Ctrl+\` | Toggle floating terminal |
+| `<Space>tf` | Open terminal (float) |
+| `<Space>th` | Open terminal (horizontal split) |
+| `<Space>tv` | Open terminal (vertical split) |
+| `Esc` (in terminal) | Exit terminal mode |
 
 ### Git
 | Key | Action |

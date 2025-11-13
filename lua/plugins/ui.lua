@@ -67,11 +67,14 @@ return {
 
       require("which-key").add({
         { "<leader>c", group = "Code" },
-        { "<leader>d", group = "Document/Debug" },
-        { "<leader>r", group = "Rename" },
-        { "<leader>s", group = "Search" },
-        { "<leader>w", group = "Workspace" },
+        { "<leader>d", group = "Debug" },
         { "<leader>f", group = "Find/Format" },
+        { "<leader>g", group = "Go" },
+        { "<leader>h", group = "Git Hunk" },
+        { "<leader>r", group = "Rust/Rename" },
+        { "<leader>t", group = "Terminal/Toggle" },
+        { "<leader>w", group = "Workspace" },
+        { "<leader>x", group = "Diagnostics" },
       })
     end,
   },
