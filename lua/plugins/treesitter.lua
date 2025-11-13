@@ -11,7 +11,9 @@ return {
           "php", "phpdoc", "html", "css", "scss",
           "sql", "kotlin", "dart",
           "ruby", "commonlisp", "scheme", "r",
-          "c_sharp", "swift", "bash", "zig", "elixir", "haskell", "scala", "nim"
+          "c_sharp", "bash", "zig", "elixir", "haskell", "scala", "nim"
+          -- "swift" removed: requires tree-sitter CLI which needs separate installation
+          -- To enable: npm install -g tree-sitter-cli, then uncomment swift
         },
         auto_install = true,
         highlight = {
